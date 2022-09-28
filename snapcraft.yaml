@@ -56,3 +56,20 @@ parts:
       - python3-gi
       - python3-psutil
       - gir1.2-appindicator3-0.1
+
+  protonvpn-nm-lib:
+    source: https://github.com/ProtonVPN/protonvpn-nm-lib
+    source-type: git
+    plugin: python
+    
+    build-packages:
+      - pkg-config 
+      - network-manager 
+      - network-manager-openvpn 
+      - openvpn 
+      - libcairo2-dev 
+      - libgirepository1.0-dev 
+      - gir1.2-nm-1.0 
+      - dbus-x11 
+      - libsecret-tools 
+      - gnome-keyring
