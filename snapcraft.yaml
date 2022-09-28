@@ -12,10 +12,6 @@ base: core20
 grade: stable 
 confinement: strict
 
-package-repositories:
- - type: apt
-   ppa: deadsnakes/ppa
-
 apps:
   protonvpn:
     command: bin/protonvpn
@@ -24,7 +20,7 @@ apps:
     environment:
       LC_ALL: C.UTF-8
       LANG: C.UTF-8
-      PYTHONPATH: $SNAP/usr/lib/python3.9/dist-packages
+      PYTHONPATH: $SNAP/usr/lib/python3.8/dist-packages
     plugs:  
       - network
       - network-bind
@@ -38,7 +34,6 @@ parts:
     plugin: python
     build-environment:
       - SNAPCRAFT_PYTHON_INTERPRETER: python3.8
-        # python3.9 lives in $SNAPCRAFT_PART_INSTALL/bin
       - PATH: $SNAPCRAFT_PART_INSTALL/bin:$PATH
       - PYTHONPATH: ''
     
@@ -65,7 +60,12 @@ parts:
     source: https://github.com/ProtonVPN/protonvpn-nm-lib
     source-type: git
     plugin: python
-    
+    build-environment:
+      - SNAPCRAFT_PYTHON_INTERPRETER: python3.8
+      - PATH: $SNAPCRAFT_PART_INSTALL/bin:$PATH
+      - PYTHONPATH: ''
+      
+      
     build-packages:
       - pkg-config 
       - network-manager 
