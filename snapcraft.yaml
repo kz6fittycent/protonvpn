@@ -42,9 +42,9 @@ parts:
       snapcraftctl set-version "$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)"  
       
     build-packages:
-      - python3-gobject
+      - python3-gi
       - python3-psutil
       
     stage-packages:
-      - python3-gobject
+      - python3-gi
       - python3-psutil
