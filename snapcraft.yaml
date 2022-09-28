@@ -8,17 +8,19 @@ description: |
   
 license: GPL-3.0
 
-base: core18
+base: core20
 grade: stable 
 confinement: strict
 
 apps:
   protonvpn:
-    command: python3 $SNAP/usr/local/bin/protonvpn
+    command: bin/protonvpn
+    extensions:
+      - gnome-3-38    
     environment:
       LC_ALL: C.UTF-8
       LANG: C.UTF-8
-      PYTHONPATH: $SNAP/usr/lib/python3/dist-packages
+      PYTHONPATH: $SNAP/usr/lib/python3.9/dist-packages
     plugs:  
       - network
       - network-bind
@@ -27,21 +29,18 @@ apps:
          
 parts: 
   protonvpn:
-    source: https://github.com/ProtonVPN/linux-cli
+    source: https://github.com/ProtonVPN/linux-app
     source-type: git
-    plugin: nil
-    
-    override-build: |
-      pip3 install protonvpn-cli
+    plugin: python
       
     override-pull: |
       snapcraftctl pull
       snapcraftctl set-version "$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)"  
       
     build-packages:
-      - python3-all-dev
-      - python3-setuptools
-      - python3-pip
+      - python3-gobject
+      - python3-psutil
       
     stage-packages:
-      - python3
+      - python3-gobject
+      - python3-psutil
