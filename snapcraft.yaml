@@ -50,3 +50,4 @@ parts:
     stage-packages:
       - python3-gi
       - python3-psutil
+      - gir1.2-appindicator3-0.1
