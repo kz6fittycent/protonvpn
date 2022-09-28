@@ -77,6 +77,7 @@ parts:
       - libsecret-tools 
       - gnome-keyring
       - python3-xdg
+      - python3-pip
       
     stage-packages:
       - pkg-config 
