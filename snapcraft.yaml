@@ -36,7 +36,11 @@ parts:
     source: https://github.com/ProtonVPN/linux-app
     source-type: git
     plugin: python
-      
+    
+    override-build: |
+      unset PYTHONPATH
+      snapcraftctl build
+    
     override-pull: |
       snapcraftctl pull
       snapcraftctl set-version "$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)"  
