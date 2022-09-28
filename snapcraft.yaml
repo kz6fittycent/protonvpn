@@ -37,7 +37,7 @@ parts:
     source-type: git
     plugin: python
     build-environment:
-      - SNAPCRAFT_PYTHON_INTERPRETER: python3.9
+      - SNAPCRAFT_PYTHON_INTERPRETER: python3.8
         # python3.9 lives in $SNAPCRAFT_PART_INSTALL/bin
       - PATH: $SNAPCRAFT_PART_INSTALL/bin:$PATH
       - PYTHONPATH: ''
