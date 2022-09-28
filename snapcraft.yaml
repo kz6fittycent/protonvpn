@@ -12,6 +12,10 @@ base: core20
 grade: stable 
 confinement: strict
 
+package-repositories:
+ - type: apt
+   ppa: deadsnakes/ppa
+
 apps:
   protonvpn:
     command: bin/protonvpn
