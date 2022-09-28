@@ -64,8 +64,7 @@ parts:
       - SNAPCRAFT_PYTHON_INTERPRETER: python3.8
       - PATH: $SNAPCRAFT_PART_INSTALL/bin:$PATH
       - PYTHONPATH: ''
-      
-      
+  
     build-packages:
       - pkg-config 
       - network-manager 
@@ -77,6 +76,7 @@ parts:
       - dbus-x11 
       - libsecret-tools 
       - gnome-keyring
+      - python3-xdg
       
     stage-packages:
       - pkg-config 
@@ -88,4 +88,5 @@ parts:
       - gir1.2-nm-1.0 
       - dbus-x11 
       - libsecret-tools 
-      - gnome-keyring    
+      - gnome-keyring   
+      - python3-xdg
