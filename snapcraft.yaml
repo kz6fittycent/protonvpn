@@ -37,19 +37,22 @@ parts:
     source-type: git
     plugin: python
     build-environment:
-      PYTHONPATH: "invalid"
+      - SNAPCRAFT_PYTHON_INTERPRETER: python3.9
+        # python3.9 lives in $SNAPCRAFT_PART_INSTALL/bin
+      - PATH: $SNAPCRAFT_PART_INSTALL/bin:$PATH
+      - PYTHONPATH: ''
     
     override-pull: |
       snapcraftctl pull
       snapcraftctl set-version "$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)"  
       
     build-packages:
-      - python3-gi
+      - python3-gi-dev
       - python3-psutil
       - python3-pip
       - python3-testresources
       
     stage-packages:
-      - python3-gi
+      - python3-gi-dev
       - python3-psutil
       - gir1.2-appindicator3-0.1
