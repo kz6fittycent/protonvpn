@@ -36,10 +36,8 @@ parts:
     source: https://github.com/ProtonVPN/linux-app
     source-type: git
     plugin: python
-    
-    override-build: |
-      unset PYTHONPATH
-      snapcraftctl build
+    build-environment:
+      PYTHONPATH: "invalid"
     
     override-pull: |
       snapcraftctl pull
